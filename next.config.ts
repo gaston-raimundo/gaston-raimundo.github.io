@@ -4,9 +4,6 @@ const nextConfig: NextConfig = {
   // Export estático para GitHub Pages
   output: "export",
 
-  // Ocultar el botón de Dev Tools en desarrollo
-  devIndicators: false,
-
   // Si el repo NO es username.github.io, descomentá y ajustá el basePath:
   // basePath: "/institutional-web",
   // assetPrefix: "/institutional-web/",

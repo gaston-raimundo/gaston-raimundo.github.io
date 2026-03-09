@@ -1,4 +1,21 @@
-const servicios = [
+import {
+  IlustracionPowerBI,
+  IlustracionExcel,
+  IlustracionSQL,
+  IlustracionKPIs,
+  IlustracionPLC,
+  IlustracionConsultoria,
+} from "./Ilustraciones";
+
+interface Servicio {
+  icon: React.ReactNode;
+  titulo: string;
+  descripcion: string;
+  tags: string[];
+  Ilustracion: React.FC;
+}
+
+const servicios: Servicio[] = [
   {
     icon: (
       <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -11,6 +28,7 @@ const servicios = [
     descripcion:
       "Desarrollo de reportes ejecutivos interactivos con modelado DAX avanzado, Power Query y Row-Level Security. Visibilidad gerencial en tiempo real.",
     tags: ["Power BI", "DAX", "Power Query", "RLS"],
+    Ilustracion: IlustracionPowerBI,
   },
   {
     icon: (
@@ -24,6 +42,7 @@ const servicios = [
     descripcion:
       "Transformo planillas manuales en sistemas de reporte automatizados con Power Query, tablas dinámicas, macros VBA y KPIs calculados automáticamente.",
     tags: ["Excel", "VBA", "Power Query", "KPIs"],
+    Ilustracion: IlustracionExcel,
   },
   {
     icon: (
@@ -37,6 +56,7 @@ const servicios = [
     descripcion:
       "Diseño de queries complejas, CTEs, joins avanzados y optimización de performance. Extracción y transformación de datos para análisis gerencial.",
     tags: ["SQL", "CTEs", "Joins", "Performance"],
+    Ilustracion: IlustracionSQL,
   },
   {
     icon: (
@@ -50,6 +70,7 @@ const servicios = [
     descripcion:
       "Diseño y automatización de indicadores clave: OEE, MTBF, MTTR, eficiencia por línea, rendimiento diario/semanal/mensual para gerencias industriales.",
     tags: ["OEE", "MTBF", "Producción", "Compras"],
+    Ilustracion: IlustracionKPIs,
   },
   {
     icon: (
@@ -63,6 +84,7 @@ const servicios = [
     descripcion:
       "Extracción y aprovechamiento de datos operacionales generados por PLCs en planta. Centralización para análisis de eficiencia y mantenimiento predictivo.",
     tags: ["PLC", "IoT", "Industrial", "ETL"],
+    Ilustracion: IlustracionPLC,
   },
   {
     icon: (
@@ -76,6 +98,7 @@ const servicios = [
     descripcion:
       "Diagnóstico del estado actual de datos, diseño de roadmap analítico y propuesta de soluciones escalables adaptadas a la madurez de cada organización.",
     tags: ["Consultoría", "Roadmap BI", "Estrategia"],
+    Ilustracion: IlustracionConsultoria,
   },
 ];
 
@@ -87,19 +110,27 @@ export default function Servicios() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {servicios.map((s, i) => (
-            <div key={i} className="card group animate-fade-in">
-              {/* Ícono */}
-              <div className="w-12 h-12 rounded-xl bg-primary-900/50 border border-primary-800
-                              flex items-center justify-center text-primary-400
-                              group-hover:bg-primary-800/50 transition-colors mb-5">
-                {s.icon}
+            <div key={i} className="card group animate-fade-in flex flex-col gap-4">
+
+              {/* Ilustración SVG */}
+              <div className="w-full rounded-xl overflow-hidden border border-slate-800 bg-[#12122a]">
+                <s.Ilustracion />
               </div>
 
-              <h3 className="text-white font-semibold text-lg mb-2">{s.titulo}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed mb-4">{s.descripcion}</p>
+              {/* Ícono + título */}
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-xl bg-primary-900/50 border border-primary-800
+                                flex items-center justify-center text-primary-400 shrink-0
+                                group-hover:bg-primary-800/50 transition-colors">
+                  {s.icon}
+                </div>
+                <h3 className="text-white font-semibold text-lg leading-tight pt-1">{s.titulo}</h3>
+              </div>
+
+              <p className="text-slate-400 text-sm leading-relaxed">{s.descripcion}</p>
 
               {/* Tags */}
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mt-auto">
                 {s.tags.map((tag) => (
                   <span
                     key={tag}
