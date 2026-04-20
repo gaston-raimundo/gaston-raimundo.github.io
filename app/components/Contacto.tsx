@@ -41,12 +41,12 @@ const contactLinks = [
 ];
 
 const serviciosOpciones = [
-  "Dashboard Power BI",
-  "Automatización Excel / VBA",
-  "Modelado de datos SQL",
-  "KPIs estratégicos",
-  "Integración de datos PLC",
-  "Otro",
+  "Auditoría gratuita de Excels / reportes (30 min)",
+  "Fase 1 — Saneamiento de Excels y reportes",
+  "Fase 2 — Automatización (Python + web/móvil)",
+  "Fase 3 — Integraciones ERP / SCADA / HMI",
+  "Dashboard Power BI puntual",
+  "Consulta general",
 ];
 
 export default function Contacto() {
@@ -91,12 +91,62 @@ export default function Contacto() {
     "placeholder-slate-500 text-sm focus:outline-none focus:border-primary-500 " +
     "focus:ring-1 focus:ring-primary-500/40 transition-colors duration-200";
 
+  const activarAuditoria = () => {
+    setForm((prev) => ({
+      ...prev,
+      servicio: "Auditoría gratuita de Excels / reportes (30 min)",
+      mensaje:
+        prev.mensaje ||
+        "Me interesa agendar la auditoría gratuita de 30 min. Contame brevemente los reportes o Excels que hoy nos generan más fricción y coordinemos un horario.",
+    }));
+    // Llevar al form
+    setTimeout(() => {
+      const form = document.getElementById("contacto-form");
+      form?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 50);
+  };
+
   return (
-    <section id="contacto" className="py-20 bg-surface/20">
+    <section id="contacto" className="py-14 bg-surface/20">
       <div className="section">
         <h2 className="section-title">Contacto</h2>
 
-        <div className="grid md:grid-cols-5 gap-10 items-start">
+        {/* Lead magnet — auditoría gratuita */}
+        <div className="mb-8 rounded-2xl border border-industrial-500/40 bg-gradient-to-br from-industrial-500/10 via-surface/60 to-surface p-6 md:p-8 relative overflow-hidden">
+          <div className="absolute -top-16 -right-16 w-64 h-64 bg-industrial-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="relative z-10 grid md:grid-cols-[1fr_auto] gap-6 items-center">
+            <div>
+              <div className="chip-accent mb-3">
+                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                Oferta sin compromiso
+              </div>
+              <h3 className="text-white font-bold text-xl md:text-2xl mb-2 leading-tight">
+                Auditoría gratuita de Excels y reportes <span className="text-industrial-400">(30 min)</span>
+              </h3>
+              <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+                Agendamos una sesión corta, revisamos los reportes que más fricción
+                generan y te devuelvo 2–3 recomendaciones concretas por escrito.
+                <span className="text-slate-400"> Sin presentación comercial, sin obligación posterior.</span>
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={activarAuditoria}
+              className="btn-accent shrink-0 whitespace-nowrap"
+            >
+              Pedir auditoría gratuita
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-5 gap-8 items-start">
           {/* Columna izquierda — info (2/5) */}
           <div className="md:col-span-2 flex flex-col gap-8">
             <div>
@@ -107,8 +157,8 @@ export default function Contacto() {
               </p>
               <p className="text-slate-400 text-sm leading-relaxed">
                 Puedo ayudarte a diseñar una solución analítica a medida — desde
-                automatizar tus reportes de producción en Excel hasta implementar
-                dashboards Power BI conectados a tus datos de planta.
+                sanear los Excels que hoy sostienen la operación hasta un roadmap
+                de evolución por fases hacia Industria 4.0.
               </p>
             </div>
 
@@ -153,7 +203,7 @@ export default function Contacto() {
           </div>
 
           {/* Columna derecha — formulario (3/5) */}
-          <div className="md:col-span-3">
+          <div className="md:col-span-3" id="contacto-form">
             <div className="card border-slate-700 bg-surface/60 p-8">
               <h3 className="text-white font-bold text-lg mb-6">
                 Contame sobre tu proyecto
@@ -221,17 +271,19 @@ export default function Contacto() {
                 {/* Servicio */}
                 <div>
                   <label className="block text-slate-400 text-xs uppercase tracking-wider mb-1.5">
-                    ¿Qué servicio necesitás?
+                    Servicio de inter&eacute;s
                   </label>
                   <select
                     name="servicio"
                     value={form.servicio}
                     onChange={handleChange}
-                    className={inputClass + " cursor-pointer"}
+                    className={inputClass}
                   >
-                    <option value="">Seleccioná una opción...</option>
+                    <option value="">Seleccion&aacute; una opci&oacute;n...</option>
                     {serviciosOpciones.map((s) => (
-                      <option key={s} value={s}>{s}</option>
+                      <option key={s} value={s}>
+                        {s}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -244,8 +296,8 @@ export default function Contacto() {
                   <textarea
                     name="mensaje"
                     required
-                    rows={4}
-                    placeholder="Contame brevemente tu situación actual y qué necesitás resolver..."
+                    rows={5}
+                    placeholder="Contame brevemente tu situaci&oacute;n, los reportes o Excels con fricci&oacute;n, y qu&eacute; te gustar&iacute;a resolver..."
                     value={form.mensaje}
                     onChange={handleChange}
                     className={inputClass + " resize-none"}
@@ -253,11 +305,8 @@ export default function Contacto() {
                 </div>
 
                 {/* Submit */}
-                <button
-                  type="submit"
-                  className="btn-primary w-full justify-center mt-1"
-                >
-                  Enviar mensaje
+                <button type="submit" className="btn-accent w-full justify-center mt-2">
+                  Enviar consulta
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                       d="M14 5l7 7m0 0l-7 7m7-7H3"
@@ -265,8 +314,9 @@ export default function Contacto() {
                   </svg>
                 </button>
 
-                <p className="text-slate-600 text-xs text-center">
-                  Al enviar se abrirá tu cliente de correo con el mensaje pre-completado.
+                <p className="text-slate-500 text-xs text-center leading-relaxed mt-1">
+                  Al enviar se abrir&aacute; tu cliente de correo con el mensaje precargado.
+                  Nada se env&iacute;a autom&aacute;ticamente &mdash; ten&eacute;s el control total.
                 </p>
               </form>
             </div>

@@ -67,4 +67,23 @@
            border border-primary-500 text-primary-400 hover:bg-primary-900/30
            transition-all duration-200;
   }
+
+  /* Botón acento industrial (CTA fuerte) */
+  .btn-accent {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold
+           bg-industrial-500 text-white hover:bg-industrial-600
+           transition-all duration-200 hover:shadow-lg hover:shadow-industrial-700/40;
+  }
+
+  /* Chip acento industrial */
+  .chip-accent {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold
+           bg-industrial-500/10 text-industrial-400 border border-industrial-500/30;
+  }
+
+  /* Número de fase — círculo grande */
+  .phase-number {
+    @apply w-14 h-14 rounded-2xl flex items-center justify-center
+           font-black text-xl shadow-lg;
+  }
 }

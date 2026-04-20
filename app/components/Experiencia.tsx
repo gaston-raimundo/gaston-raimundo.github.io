@@ -45,7 +45,7 @@ const experiencias = [
 
 export default function Experiencia() {
   return (
-    <section id="experiencia" className="py-20 bg-dark">
+    <section id="experiencia" className="py-14 bg-dark">
       <div className="section">
         <h2 className="section-title">Experiencia</h2>
 
@@ -54,7 +54,7 @@ export default function Experiencia() {
           {/* Línea vertical */}
           <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-primary-600 via-primary-800 to-transparent hidden md:block" />
 
-          <div className="flex flex-col gap-12">
+          <div className="flex flex-col gap-8">
             {experiencias.map((exp, i) => (
               <div key={i} className="md:pl-14 relative">
                 {/* Dot en la línea */}

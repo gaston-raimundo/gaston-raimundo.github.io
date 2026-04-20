@@ -111,10 +111,10 @@ function BrowserMock({ href }: { href: string }) {
 
 export default function Demos() {
   return (
-    <section id="demos" className="py-20">
+    <section id="demos" className="py-14">
       <div className="section">
         <h2 className="section-title">Demos</h2>
-        <p className="text-slate-400 -mt-6 mb-10 text-base leading-relaxed max-w-2xl">
+        <p className="text-slate-400 -mt-6 mb-8 text-base leading-relaxed max-w-2xl">
           Proyectos reales desplegados en producción. Hacé clic en cualquier demo
           para explorarlo en vivo.
         </p>

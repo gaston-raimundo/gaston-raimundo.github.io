@@ -2,23 +2,27 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Gaston Raimundo | Data Analyst Senior",
+  title: "Gaston Raimundo | Consultor en automatizacion de datos",
   description:
-    "Data Analyst Senior especializado en Power BI, SQL, Excel Avanzado y automatización de reportes. Corrientes, Argentina.",
+    "Consultor independiente en automatizacion de datos y BI. De Excels rotos a ecosistemas confiables: saneamiento, automatizacion Python y evolucion hacia Industria 4.0 por fases validadas.",
   keywords: [
-    "data analyst",
+    "consultor bi",
+    "automatizacion de datos",
     "power bi",
     "sql",
     "excel avanzado",
-    "business intelligence",
+    "python",
+    "kpi produccion",
+    "industria 4.0",
+    "consultor independiente",
     "corrientes",
     "argentina",
   ],
   authors: [{ name: "Gaston Pablo Raimundo" }],
   openGraph: {
-    title: "Gaston Raimundo | Data Analyst Senior",
+    title: "Gaston Raimundo | Consultor en automatizacion de datos",
     description:
-      "Transformo datos en decisiones. Especialista en BI, automatización de reportes y modelado de datos.",
+      "Enfoque consultivo por fases: saneamiento de Excels, automatizacion Python + web/movil, Industria 4.0. Entregables verificables, propiedad intelectual del cliente.",
     type: "website",
   },
 };
@@ -31,7 +35,6 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <head>
-        {/* Google Fonts: Inter + JetBrains Mono */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

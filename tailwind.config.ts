@@ -8,7 +8,6 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Paleta principal — ajustable
         primary: {
           50: "#eff6ff",
           100: "#dbeafe",
@@ -16,11 +15,18 @@ const config: Config = {
           500: "#3b82f6",
           600: "#2563eb",
           700: "#1d4ed8",
+          800: "#1e40af",
           900: "#1e3a8a",
         },
-        accent: "#06b6d4",   // cyan-500
-        dark: "#0f172a",     // slate-900
-        surface: "#1e293b",  // slate-800
+        industrial: {
+          400: "#F29648",
+          500: "#E87722",
+          600: "#C65E0F",
+          700: "#9E4A0C",
+        },
+        accent: "#06b6d4",
+        dark: "#0f172a",
+        surface: "#1e293b",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],

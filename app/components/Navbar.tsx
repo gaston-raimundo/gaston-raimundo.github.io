@@ -4,10 +4,11 @@ import { useState, useEffect } from "react";
 
 const navLinks = [
   { label: "Inicio", href: "#hero" },
-  { label: "Servicios", href: "#servicios" },
+  { label: "Fases", href: "#servicios" },
+  { label: "Proceso", href: "#proceso" },
   { label: "Demos", href: "#demos" },
-  { label: "Stack", href: "#stack" },
   { label: "Experiencia", href: "#experiencia" },
+  { label: "Stack", href: "#stack" },
   { label: "Contacto", href: "#contacto" },
 ];
 
@@ -54,10 +55,10 @@ export default function Navbar() {
 
         {/* CTA — desktop */}
         <a
-          href="mailto:gaston.rai28@gmail.com"
-          className="hidden md:inline-flex btn-primary text-sm py-2 px-4"
+          href="#contacto"
+          className="hidden md:inline-flex btn-accent text-sm py-2 px-4"
         >
-          Hablemos
+          Auditoría gratis
         </a>
 
         {/* Hamburger — mobile */}
@@ -108,11 +109,11 @@ export default function Navbar() {
             ))}
             <li>
               <a
-                href="mailto:gaston.rai28@gmail.com"
-                className="btn-primary text-sm py-2 w-full justify-center"
+                href="#contacto"
+                className="btn-accent text-sm py-2 w-full justify-center"
                 onClick={() => setMenuOpen(false)}
               >
-                Hablemos
+                Auditoría gratis
               </a>
             </li>
           </ul>

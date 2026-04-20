@@ -10,180 +10,290 @@ import {
   IlustracionConsultoria,
 } from "./Ilustraciones";
 
-interface Servicio {
-  icon: React.ReactNode;
+// =========================================================
+// Enfoque consultivo por fases — evolución validada paso a paso
+// =========================================================
+
+interface Capability {
   titulo: string;
   descripcion: string;
   tags: string[];
   Ilustracion: React.FC;
 }
 
-const servicios: Servicio[] = [
+interface Fase {
+  numero: string;
+  tituloCorto: string;
+  titulo: string;
+  pitch: string;
+  objetivos: string[];
+  entregables: string[];
+  capacidades: Capability[];
+  bgNumber: string; // clase tailwind para el fondo del número
+  borderColor: string;
+  accentText: string;
+  labelText: string;
+}
+
+const fases: Fase[] = [
   {
-    icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-          d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-        />
-      </svg>
-    ),
-    titulo: "Dashboards Power BI",
-    descripcion:
-      "Desarrollo de reportes ejecutivos interactivos con modelado DAX avanzado, Power Query y Row-Level Security. Visibilidad gerencial en tiempo real.",
-    tags: ["Power BI", "DAX", "Power Query", "RLS"],
-    Ilustracion: IlustracionPowerBI,
+    numero: "01",
+    tituloCorto: "Saneamiento",
+    titulo: "Saneamiento de Excels, reportes y flujos actuales",
+    pitch:
+      "Antes de automatizar nada, aclaramos el mapa. Revisamos los Excels críticos, las fórmulas, los orígenes de datos y los reportes que hoy sostienen la operación — para que el próximo paso se construya sobre algo confiable, no sobre planillas rotas.",
+    objetivos: [
+      "Relevamiento de procesos, líneas, protocolos y documentación existente",
+      "Diagnóstico de Excels automatizados: fórmulas, dependencias y fuentes",
+      "Mapa de flujo de datos desde papel/sistemas hasta el tablero gerencial",
+      "Listado priorizado de fricciones, duplicaciones y puntos de falla",
+    ],
+    entregables: [
+      "Excels saneados y versionados",
+      "Documento de diagnóstico + flujograma del estado actual",
+      "Recomendaciones de automatización priorizadas por impacto",
+    ],
+    capacidades: [
+      {
+        titulo: "Automatización Excel / VBA",
+        descripcion:
+          "Planillas manuales transformadas en sistemas de reporte con Power Query, tablas dinámicas, macros y KPIs calculados automáticamente.",
+        tags: ["Excel", "VBA", "Power Query", "KPIs"],
+        Ilustracion: IlustracionExcel,
+      },
+      {
+        titulo: "Diagnóstico y consultoría BI",
+        descripcion:
+          "Evaluación del estado actual, diseño de roadmap analítico por fases y propuesta adaptada a la madurez de cada organización.",
+        tags: ["Consultoría", "Diagnóstico", "Roadmap"],
+        Ilustracion: IlustracionConsultoria,
+      },
+    ],
+    bgNumber: "bg-industrial-500 text-white",
+    borderColor: "border-industrial-500/40",
+    accentText: "text-industrial-400",
+    labelText: "Fase 1",
   },
   {
-    icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-          d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"
-        />
-      </svg>
-    ),
-    titulo: "Automatización en Excel",
-    descripcion:
-      "Transformo planillas manuales en sistemas de reporte automatizados con Power Query, tablas dinámicas, macros VBA y KPIs calculados automáticamente.",
-    tags: ["Excel", "VBA", "Power Query", "KPIs"],
-    Ilustracion: IlustracionExcel,
+    numero: "02",
+    tituloCorto: "Automatización",
+    titulo: "Automatización y captación digital de datos",
+    pitch:
+      "Con el estado actual entendido, reemplazamos los procesos que duelen. Scripts en Python para las rutinas repetitivas, formularios web y móvil para sustituir el papel, y vistas diferenciadas por rol (operario, gerente, administración, dirección).",
+    objetivos: [
+      "Identificación de procesos automatizables con scripts y rutinas",
+      "Herramientas administrativas para captación de datos",
+      "Formularios web y apps móviles reemplazando planillas de papel",
+      "Vistas por rol: operación, gerencia, administración, dirección",
+    ],
+    entregables: [
+      "Scripts Python documentados y desplegados",
+      "Formularios web + app móvil para captura de datos",
+      "Dashboards Power BI conectados a los nuevos flujos",
+      "Reportes programados y alertas por umbral",
+    ],
+    capacidades: [
+      {
+        titulo: "Dashboards Power BI",
+        descripcion:
+          "Reportes ejecutivos interactivos con modelado DAX, Power Query y Row-Level Security. Visibilidad gerencial en tiempo real.",
+        tags: ["Power BI", "DAX", "Power Query", "RLS"],
+        Ilustracion: IlustracionPowerBI,
+      },
+      {
+        titulo: "Modelado y consultas SQL",
+        descripcion:
+          "Queries complejas, CTEs, joins y optimización de performance. Extracción y transformación de datos para análisis gerencial.",
+        tags: ["SQL", "CTEs", "Joins", "Performance"],
+        Ilustracion: IlustracionSQL,
+      },
+      {
+        titulo: "KPIs industriales y de negocio",
+        descripcion:
+          "Diseño y automatización de indicadores clave: OEE, MTBF, MTTR, eficiencia por línea, rendimientos diarios/semanales/mensuales.",
+        tags: ["OEE", "MTBF", "Producción", "Compras"],
+        Ilustracion: IlustracionKPIs,
+      },
+    ],
+    bgNumber: "bg-primary-600 text-white",
+    borderColor: "border-primary-600/40",
+    accentText: "text-primary-400",
+    labelText: "Fase 2",
   },
   {
-    icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-          d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
-        />
-      </svg>
-    ),
-    titulo: "Modelado y Consultas SQL",
-    descripcion:
-      "Diseño de queries complejas, CTEs, joins avanzados y optimización de performance. Extracción y transformación de datos para análisis gerencial.",
-    tags: ["SQL", "CTEs", "Joins", "Performance"],
-    Ilustracion: IlustracionSQL,
-  },
-  {
-    icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-          d="M13 10V3L4 14h7v7l9-11h-7z"
-        />
-      </svg>
-    ),
-    titulo: "KPIs de Producción",
-    descripcion:
-      "Diseño y automatización de indicadores clave: OEE, MTBF, MTTR, eficiencia por línea, rendimiento diario/semanal/mensual para gerencias industriales.",
-    tags: ["OEE", "MTBF", "Producción", "Compras"],
-    Ilustracion: IlustracionKPIs,
-  },
-  {
-    icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-          d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-        />
-      </svg>
-    ),
-    titulo: "Integración de datos PLC",
-    descripcion:
-      "Extracción y aprovechamiento de datos operacionales generados por PLCs en planta. Centralización para análisis de eficiencia y mantenimiento predictivo.",
-    tags: ["PLC", "IoT", "Industrial", "ETL"],
-    Ilustracion: IlustracionPLC,
-  },
-  {
-    icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-        />
-      </svg>
-    ),
-    titulo: "Propuestas y Consultoría BI",
-    descripcion:
-      "Diagnóstico del estado actual de datos, diseño de roadmap analítico y propuesta de soluciones escalables adaptadas a la madurez de cada organización.",
-    tags: ["Consultoría", "Roadmap BI", "Estrategia"],
-    Ilustracion: IlustracionConsultoria,
+    numero: "03",
+    tituloCorto: "Industria 4.0",
+    titulo: "Integraciones y ecosistema industrial",
+    pitch:
+      "Sobre una base estable, escalamos hacia el ecosistema completo: ERP, SCADA, HMI y automatizaciones a medida. La pirámide ISA-95 deja de ser teoría y se vuelve el operativo cotidiano — datos en tiempo real desde planta a decisión ejecutiva.",
+    objetivos: [
+      "Integración bidireccional con ERP (gestión + finanzas)",
+      "SCADA nuevo o integración con instalación existente",
+      "HMI: aprovechamiento de los funcionales + incorporación de nuevos",
+      "Automatizaciones a medida sobre el ecosistema consolidado",
+    ],
+    entregables: [
+      "Capa de integración ERP ↔ piso de planta",
+      "Arquitectura SCADA/HMI documentada",
+      "Alertas, notificaciones y reportes sobre ecosistema integrado",
+      "Roadmap de evolución hacia analítica predictiva",
+    ],
+    capacidades: [
+      {
+        titulo: "Integración de datos PLC / HMI",
+        descripcion:
+          "Extracción y aprovechamiento de datos operacionales generados por PLCs en planta. Centralización para análisis de eficiencia y mantenimiento predictivo.",
+        tags: ["PLC", "HMI", "IoT Industrial", "ETL"],
+        Ilustracion: IlustracionPLC,
+      },
+    ],
+    bgNumber: "bg-slate-700 text-primary-400 border border-primary-500/50",
+    borderColor: "border-slate-600",
+    accentText: "text-primary-400",
+    labelText: "Fase 3",
   },
 ];
 
 export default function Servicios() {
-  const [modalServicio, setModalServicio] = useState<Servicio | null>(null);
+  const [modalCap, setModalCap] = useState<Capability | null>(null);
 
   return (
-    <section id="servicios" className="py-20 bg-dark">
+    <section id="servicios" className="py-14 bg-dark">
       <div className="section">
-        <h2 className="section-title">Servicios</h2>
+        <h2 className="section-title">Enfoque por fases</h2>
+        <p className="text-slate-400 -mt-6 mb-8 text-base leading-relaxed max-w-3xl">
+          Trabajo consultivo en tres etapas validables. Cada fase tiene entregables
+          concretos y se cierra antes de avanzar — así se va construyendo confianza
+          y el alcance crece sobre terreno firme, no sobre promesas.
+        </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {servicios.map((s, i) => (
-            <div key={i} className="card group animate-fade-in flex flex-col gap-4">
-
-              {/* Ilustración SVG — clickeable */}
-              <button
-                onClick={() => setModalServicio(s)}
-                className="w-full rounded-xl overflow-hidden border border-slate-800 bg-[#12122a]
-                           cursor-zoom-in hover:border-primary-600 transition-colors duration-300
-                           focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
-                title="Ver imagen ampliada"
-              >
-                <s.Ilustracion />
-              </button>
-
-              {/* Ícono + título */}
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-xl bg-primary-900/50 border border-primary-800
-                                flex items-center justify-center text-primary-400 shrink-0
-                                group-hover:bg-primary-800/50 transition-colors">
-                  {s.icon}
+        <div className="flex flex-col gap-8">
+          {fases.map((fase) => (
+            <div
+              key={fase.numero}
+              className={`card border ${fase.borderColor} p-0 overflow-hidden`}
+            >
+              <div className="grid md:grid-cols-[auto_1fr] gap-0">
+                {/* Columna izquierda — número + chip */}
+                <div className="p-6 md:p-8 flex md:flex-col items-start md:items-center gap-4 md:border-r border-slate-800 md:min-w-[180px] bg-slate-900/30">
+                  <div className={`phase-number ${fase.bgNumber}`}>
+                    {fase.numero}
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <span className={`text-xs font-bold uppercase tracking-widest ${fase.accentText}`}>
+                      {fase.labelText}
+                    </span>
+                    <span className="text-white font-semibold text-lg leading-tight">
+                      {fase.tituloCorto}
+                    </span>
+                  </div>
                 </div>
-                <h3 className="text-white font-semibold text-lg leading-tight pt-1">{s.titulo}</h3>
-              </div>
 
-              <p className="text-slate-400 text-sm leading-relaxed">{s.descripcion}</p>
+                {/* Columna derecha — contenido */}
+                <div className="p-6 md:p-8">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 leading-tight">
+                    {fase.titulo}
+                  </h3>
+                  <p className="text-slate-300 leading-relaxed mb-6 text-base">
+                    {fase.pitch}
+                  </p>
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mt-auto">
-                {s.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2 py-0.5 rounded text-xs font-medium
-                               bg-slate-800 text-slate-400 border border-slate-700"
-                  >
-                    {tag}
-                  </span>
-                ))}
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                      <p className={`text-[10px] font-bold uppercase tracking-widest mb-3 ${fase.accentText}`}>
+                        Objetivos
+                      </p>
+                      <ul className="flex flex-col gap-2">
+                        {fase.objetivos.map((o) => (
+                          <li key={o} className="text-slate-300 text-sm flex gap-2 leading-relaxed">
+                            <span className={fase.accentText}>&rarr;</span>
+                            <span>{o}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-widest mb-3 text-industrial-400">
+                        Entregables
+                      </p>
+                      <ul className="flex flex-col gap-2">
+                        {fase.entregables.map((e) => (
+                          <li key={e} className="text-slate-300 text-sm flex gap-2 leading-relaxed">
+                            <span className="text-industrial-400">&#10003;</span>
+                            <span>{e}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {fase.capacidades.map((cap) => {
+                      const Icono = cap.Ilustracion;
+                      return (
+                        <button
+                          key={cap.titulo}
+                          type="button"
+                          onClick={() => setModalCap(cap)}
+                          className="text-left rounded-lg border border-slate-800 bg-slate-900/40 p-3 hover:border-industrial-500/40 hover:bg-slate-900/70 transition-colors"
+                        >
+                          <div className="flex items-start gap-3">
+                            <div className="w-10 h-10 shrink-0 rounded-md bg-slate-800/70 flex items-center justify-center">
+                              <Icono />
+                            </div>
+                            <div>
+                              <p className="text-white text-sm font-semibold leading-tight mb-1">
+                                {cap.titulo}
+                              </p>
+                              <p className="text-slate-500 text-xs leading-snug line-clamp-2">
+                                {cap.descripcion}
+                              </p>
+                            </div>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Modal */}
-      {modalServicio && (
+      {/* Modal detalle capacidad */}
+      {modalCap && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
-          onClick={() => setModalServicio(null)}
+          className="fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+          onClick={() => setModalCap(null)}
         >
           <div
-            className="relative w-full max-w-3xl rounded-2xl overflow-hidden border border-slate-700 bg-[#12122a] shadow-2xl"
+            className="max-w-lg w-full rounded-xl bg-slate-900 border border-slate-700 p-6 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Header */}
-            <div className="flex items-center justify-between px-5 py-3 border-b border-slate-700">
-              <span className="text-white font-semibold">{modalServicio.titulo}</span>
+            <div className="flex items-start justify-between gap-4 mb-4">
+              <div className="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center">
+                <modalCap.Ilustracion />
+              </div>
               <button
-                onClick={() => setModalServicio(null)}
-                className="text-slate-400 hover:text-white transition-colors p-1 rounded-lg hover:bg-slate-700"
+                type="button"
+                onClick={() => setModalCap(null)}
                 aria-label="Cerrar"
+                className="w-8 h-8 rounded-full bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
-
-            {/* SVG ampliado */}
-            <div className="w-full bg-[#12122a]">
-              <modalServicio.Ilustracion />
+            <h4 className="text-white text-xl font-bold mb-2">{modalCap.titulo}</h4>
+            <p className="text-slate-300 text-sm leading-relaxed mb-4">{modalCap.descripcion}</p>
+            <div className="flex flex-wrap gap-2">
+              {modalCap.tags.map((t) => (
+                <span key={t} className="text-[10px] font-semibold uppercase tracking-wider bg-slate-800 text-slate-300 px-2 py-1 rounded">
+                  {t}
+                </span>
+              ))}
             </div>
           </div>
         </div>
