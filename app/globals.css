@@ -2,88 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Fuentes de Google Fonts (cargadas en layout.tsx) ── */
+/* Fuentes locales (OFL), subconjunto latino en WOFF2 generado desde ../marca/fonts
+   (ver ../specs/fase-09-seo.md §9.1). Variables: conservan todos los pesos. */
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Variable-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2190-2193, U+2212, U+2215;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Variable-latin.woff2") format("woff2");
+  font-weight: 100 800;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2190-2193, U+2212, U+2215;
+  font-style: normal;
+  font-display: swap;
+}
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
-
   body {
-    @apply bg-dark text-slate-200 font-sans antialiased;
+    @apply bg-paper text-ink font-sans antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.6;
   }
-
-  /* Scrollbar personalizada */
-  ::-webkit-scrollbar {
-    width: 6px;
+  :focus-visible {
+    outline: 2px solid #e87722;
+    outline-offset: 2px;
   }
-  ::-webkit-scrollbar-track {
-    @apply bg-dark;
-  }
-  ::-webkit-scrollbar-thumb {
-    @apply bg-primary-700 rounded-full;
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
   }
 }
 
 @layer components {
-  /* Sección base */
-  .section {
-    @apply py-20 px-6 max-w-5xl mx-auto;
+  .wrap {
+    @apply mx-auto w-full max-w-site px-4 sm:px-6;
   }
-
-  /* Título de sección */
-  .section-title {
-    @apply text-3xl font-bold text-white mb-2;
+  .eyebrow {
+    @apply font-mono text-[13px] uppercase tracking-[0.12em] text-accent-ink;
   }
-
-  /* Línea decorativa debajo del título */
-  .section-title::after {
-    content: "";
-    @apply block w-12 h-1 bg-primary-500 mt-3 mb-10 rounded-full;
+  .on-ink .eyebrow {
+    @apply text-accent-soft;
   }
-
-  /* Chip / badge */
-  .badge {
-    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium
-           bg-primary-900 text-primary-100 border border-primary-700;
+  .h-display {
+    @apply text-[2.5rem] font-extrabold leading-[1.04] tracking-[-0.035em] sm:text-[3.25rem] lg:text-[3.75rem];
   }
-
-  /* Tarjeta base */
-  .card {
-    @apply bg-surface rounded-2xl p-6 border border-slate-700
-           hover:border-primary-600 transition-colors duration-300;
+  .h-section {
+    @apply text-[1.875rem] font-extrabold leading-[1.12] tracking-[-0.03em] sm:text-[2.25rem] lg:text-[2.5rem];
   }
-
-  /* Botón primario */
-  .btn-primary {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold
-           bg-primary-600 text-white hover:bg-primary-700
-           transition-all duration-200 hover:shadow-lg hover:shadow-primary-900/50;
+  .lead {
+    @apply text-[1.0625rem] leading-relaxed text-muted sm:text-lg;
   }
-
-  /* Botón outline */
+  .on-ink .lead {
+    @apply text-onink;
+  }
+  .btn {
+    @apply inline-flex min-h-[48px] items-center justify-center rounded-lg bg-accent px-5 text-base font-bold text-ink no-underline transition-colors hover:bg-accent-soft;
+  }
   .btn-outline {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold
-           border border-primary-500 text-primary-400 hover:bg-primary-900/30
-           transition-all duration-200;
+    @apply inline-flex min-h-[48px] items-center justify-center rounded-lg border-[1.5px] border-slate-400 px-5 text-base font-semibold no-underline transition-colors hover:border-accent;
   }
-
-  /* Botón acento industrial (CTA fuerte) */
-  .btn-accent {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold
-           bg-industrial-500 text-white hover:bg-industrial-600
-           transition-all duration-200 hover:shadow-lg hover:shadow-industrial-700/40;
+  .card {
+    @apply rounded-card border border-line bg-white p-6;
   }
-
-  /* Chip acento industrial */
-  .chip-accent {
-    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold
-           bg-industrial-500/10 text-industrial-400 border border-industrial-500/30;
-  }
-
-  /* Número de fase — círculo grande */
-  .phase-number {
-    @apply w-14 h-14 rounded-2xl flex items-center justify-center
-           font-black text-xl shadow-lg;
+  .link {
+    @apply font-semibold text-accent-ink underline-offset-4 hover:underline;
   }
 }

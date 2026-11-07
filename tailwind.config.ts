@@ -1,51 +1,26 @@
 import type { Config } from "tailwindcss";
 
+// Tokens de marca: espejo de ../marca/brand.css (fuente de verdad: specs/fase-01 §1.5).
+// Contraste: botón accent con texto ink; texto naranja sobre claro en accent-ink.
 const config: Config = {
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./app/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: "#eff6ff",
-          100: "#dbeafe",
-          400: "#60a5fa",
-          500: "#3b82f6",
-          600: "#2563eb",
-          700: "#1d4ed8",
-          800: "#1e40af",
-          900: "#1e3a8a",
-        },
-        industrial: {
-          400: "#F29648",
-          500: "#E87722",
-          600: "#C65E0F",
-          700: "#9E4A0C",
-        },
-        accent: "#06b6d4",
-        dark: "#0f172a",
-        surface: "#1e293b",
+        ink: { DEFAULT: "#0F1F3D", 2: "#13284D", line: "#24406E" },
+        accent: { DEFAULT: "#E87722", ink: "#B4560F", soft: "#FDBA74" },
+        steel: "#334155",
+        muted: "#475569",
+        onink: "#CBD5E1",
+        line: "#E2E8F0",
+        paper: "#F8FAFC",
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        mono: ["JetBrains Mono", "monospace"],
+        sans: ["Inter", "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
+        mono: ["JetBrains Mono", "ui-monospace", "Cascadia Mono", "monospace"],
       },
-      animation: {
-        "fade-in": "fadeIn 0.6s ease-out",
-        "slide-up": "slideUp 0.5s ease-out",
-      },
-      keyframes: {
-        fadeIn: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
-        },
-        slideUp: {
-          "0%": { transform: "translateY(20px)", opacity: "0" },
-          "100%": { transform: "translateY(0)", opacity: "1" },
-        },
-      },
+      maxWidth: { site: "1200px" },
+      borderRadius: { card: "14px", panel: "18px" },
     },
   },
   plugins: [],
