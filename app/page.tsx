@@ -53,6 +53,24 @@ export default function Home() {
 
       <Pillars />
 
+      <section aria-labelledby="bi-home" className="wrap grid gap-8 pb-4 pt-16 lg:grid-cols-[1.3fr_1fr] lg:items-end">
+        <div className="flex flex-col gap-4">
+          <p className="eyebrow">BUSINESS INTELLIGENCE</p>
+          <h2 id="bi-home" className="h-section">
+            Consultora de business intelligence y automatización de datos.
+          </h2>
+          <p className="lead">
+            BI Insights es una consultora de business intelligence de Corrientes que trabaja con empresas del NEA y
+            de toda Argentina. A diferencia de un proyecto de BI tradicional, no empezamos por el tablero: empezamos
+            por automatizar la captura y la integración de los datos, para que los indicadores lleguen solos y sean
+            confiables.
+          </p>
+        </div>
+        <Link href="/business-intelligence" className="link self-start text-[17px] lg:self-end">
+          Qué es business intelligence y cómo lo implementamos →
+        </Link>
+      </section>
+
       <section id="soluciones" className="wrap flex scroll-mt-20 flex-col gap-9 pb-10 pt-20">
         <SectionHead
           eyebrow="SOLUCIONES"

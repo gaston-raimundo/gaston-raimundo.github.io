@@ -8,7 +8,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} · Sistemas de datos para la industria`,
+    default: `${site.name} · Business intelligence y automatización de datos | Corrientes`,
     template: `%s · ${site.name}`,
   },
   description: site.description,
@@ -31,13 +31,36 @@ export const viewport: Viewport = {
 
 const orgJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "ProfessionalService",
+  "@id": `${site.url}/#organizacion`,
   name: site.name,
+  description: site.description,
   url: site.url,
   logo: `${site.url}/brand/icon-512.png`,
+  image: `${site.url}/og/home.png`,
   email: site.email,
   founder: { "@type": "Person", name: site.founder },
-  address: { "@type": "PostalAddress", addressRegion: "Corrientes", addressCountry: "AR" },
+  address: { "@type": "PostalAddress", addressLocality: "Corrientes", addressRegion: "Corrientes", addressCountry: "AR" },
+  areaServed: [
+    { "@type": "City", name: "Corrientes" },
+    { "@type": "City", name: "Resistencia" },
+    { "@type": "State", name: "Corrientes" },
+    { "@type": "State", name: "Chaco" },
+    { "@type": "State", name: "Misiones" },
+    { "@type": "Country", name: "Argentina" },
+  ],
+  knowsAbout: [
+    "Business intelligence",
+    "Inteligencia de negocios",
+    "Automatización de datos",
+    "Tableros de control",
+    "KPIs",
+    "Programación de producción",
+    "OEE",
+    "Industria 4.0",
+    "Ingeniería de datos",
+  ],
+  slogan: site.tagline,
   sameAs: [site.linkedin],
   makesOffer: services.map((s) => ({
     "@type": "Offer",
