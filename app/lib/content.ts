@@ -15,7 +15,7 @@ export const site = {
   url: "https://www.biinsights.com.ar",
   tagline: "Tus datos, trabajando.",
   description:
-    "Implementamos sistemas de datos que reemplazan hojas de cálculo y cargas manuales por información en tiempo real, sobre infraestructura que es del cliente. Corrientes, Argentina.",
+    "Consultora de business intelligence y automatización de datos: implementamos sistemas que reemplazan hojas de cálculo y cargas manuales por información en tiempo real, sobre infraestructura del cliente. Corrientes, Argentina.",
   email: "contacto@biinsights.com.ar",
   linkedin: "https://linkedin.com/in/gaston-raimundo-3a287a213/",
   location: "Corrientes, Argentina",
@@ -649,6 +649,7 @@ export const verticalBySlug = (slug: VerticalSlug) =>
 
 export const nav = {
   soluciones: [
+    { href: "/business-intelligence", label: "Business intelligence" },
     { href: "/soluciones/programacion-produccion", label: "Programación de producción" },
     { href: "/soluciones/captura-datos", label: "Captura de datos de planta" },
     { href: "/soluciones/gestion-kpis", label: "Gestión de KPIs" },
@@ -665,8 +666,8 @@ export const nav = {
 export const searchMeta: Record<string, { description: string; keywords: string[] }> = {
   "/": {
     description:
-      "Implementamos sistemas que reemplazan Excel, hojas de cálculo y cargas manuales por información en tiempo real, sobre infraestructura del cliente. Corrientes, Argentina.",
-    keywords: ["reemplazar Excel", "automatización de datos", "consultor de datos Corrientes", "sistemas de datos industria", "datos en tiempo real", "NEA"],
+      "Consultora de business intelligence en Corrientes: reemplazamos Excel y cargas manuales por tableros, KPIs y datos en tiempo real para industria y retail del NEA y Argentina.",
+    keywords: ["business intelligence", "consultora de business intelligence", "business intelligence Corrientes", "reemplazar Excel", "automatización de datos", "consultor de datos Corrientes", "sistemas de datos industria", "datos en tiempo real", "NEA"],
   },
   "/soluciones/programacion-produccion": {
     description:
@@ -692,5 +693,10 @@ export const searchMeta: Record<string, { description: string; keywords: string[
     description:
       "KPIs por sucursal y consolidación de ventas, stock y vencimientos de toda la cadena, sin juntar planillas de Excel de cada sucursal.",
     keywords: ["KPIs por sucursal", "consolidación de ventas multisucursal", "planillas Excel sucursales", "cadenas de farmacias"],
+  },
+  "/business-intelligence": {
+    description:
+      "Business intelligence para pymes industriales y retail: tableros, KPIs y datos automatizados en lugar de Excel. Consultora BI en Corrientes, para el NEA y toda Argentina.",
+    keywords: ["business intelligence", "consultora business intelligence Argentina", "business intelligence pymes", "inteligencia de negocios", "tableros de control", "BI Corrientes"],
   },
 };
